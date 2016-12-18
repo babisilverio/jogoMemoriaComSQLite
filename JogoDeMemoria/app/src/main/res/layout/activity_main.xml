@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:id="@+id/fundo_tela"
+    android:background="@drawable/tela_branca"
+    tools:context="com.memory.jogodememoria.MainActivity"
+    >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reiniciar"
+        android:id="@+id/buttonR"
+        android:elegantTextHeight="false"
+        android:typeface="normal"
+        android:allowUndo="false"
+        android:background="@drawable/botao_reinicia"
+        android:onClick="reiniciar"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/botao1"
+        android:id="@+id/button1"
+        android:background="@drawable/botao1"
+        android:padding="35dp"
+        android:layout_marginBottom="28dp"
+        android:layout_above="@+id/button3"
+        android:layout_toLeftOf="@+id/buttonR"
+        android:layout_toStartOf="@+id/buttonR"
+        android:onClick="clickBotao"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/botao2"
+        android:id="@+id/button2"
+        android:background="@drawable/botao2"
+        android:padding="35dp"
+        android:onClick="clickBotao"
+        android:layout_alignTop="@+id/button1"
+        android:layout_toRightOf="@+id/buttonR"
+        android:layout_toEndOf="@+id/buttonR" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/botao3"
+        android:id="@+id/button3"
+        android:background="@drawable/botao3"
+        android:padding="35dp"
+        android:onClick="clickBotao"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_alignStart="@+id/button1" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/botao4"
+        android:id="@+id/button4"
+        android:layout_alignTop="@+id/button3"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2"
+        android:background="@drawable/botao4"
+        android:padding="35dp"
+        android:onClick="clickBotao"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/botao5"
+        android:id="@+id/button5"
+        android:background="@drawable/botao5"
+        android:padding="35dp"
+        android:layout_below="@+id/button3"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignStart="@+id/button3"
+        android:layout_marginTop="41dp"
+        android:onClick="clickBotao"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/botao6"
+        android:id="@+id/button6"
+        android:layout_alignTop="@+id/button5"
+        android:layout_toRightOf="@+id/buttonR"
+        android:layout_toEndOf="@+id/buttonR"
+        android:background="@drawable/botao6"
+        android:padding="35dp"
+        android:onClick="clickBotao"/>
+
+    <TextView
+        android:text="@string/vitoria"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:id="@+id/vitoria"
+        android:layout_centerHorizontal="true"
+        tools:text="@string/vitoria"
+        android:textColor="@android:color/black"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display3" />
+
+    <TextView
+        android:text="@string/elogio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:id="@+id/elogio"
+        tools:text="@string/elogio"
+        android:textColor="@android:color/black"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.Medium"
+        android:layout_below="@+id/vitoria"
+        android:layout_centerHorizontal="true" />
+
+<!--    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/textView"
+        android:layout_toRightOf="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:id="@+id/barrinha"
+        android:visibility="visible" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/progresso"
+        android:id="@+id/textView"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" /> -->
+
+
+</RelativeLayout>
