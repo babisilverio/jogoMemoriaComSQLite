@@ -10,4 +10,6 @@
     <string name="progresso">Progresso:</string>
     <string name="vitoria">Parabéns!!!</string>
     <string name="elogio">Você tem uma boa memória</string>
+    <string name="qtdeTentativas">Tentativas: </string>
+    <string name="qtdeVitorias">Vitorias: </string>
 </resources>

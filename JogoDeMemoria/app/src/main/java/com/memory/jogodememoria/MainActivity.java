@@ -1,6 +1,7 @@
 package com.memory.jogodememoria;
 
 import android.graphics.Color;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,15 +16,33 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private List<Integer> numeros = gerarNumeros();
     private int seq = 0;
+    private int vitorias = 0;
+    private int tentativas = 0;
+    private Memoria memoria = new Memoria();
+    Database database = new Database(this);
+    boolean ganhei = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         TextView victory = (TextView) findViewById(R.id.vitoria);
         victory.setVisibility(View.INVISIBLE);
         TextView elogio = (TextView) findViewById(R.id.elogio);
         elogio.setVisibility(View.INVISIBLE);
+
+        TextView viewTentativa = (TextView) findViewById(R.id.tentativas);
+        viewTentativa.setVisibility(View.INVISIBLE);
+        TextView viewVitoria = (TextView) findViewById(R.id.ganhei);
+        viewVitoria.setVisibility(View.INVISIBLE);
+        TextView viewQtdeTentativa = (TextView) findViewById(R.id.qtdeTentativas);
+        viewQtdeTentativa.setVisibility(View.INVISIBLE);
+        TextView viewQtdeVitoria = (TextView) findViewById(R.id.qtdeVitoria);
+        viewQtdeVitoria.setVisibility(View.INVISIBLE);
+        memoria.setVitorias(0);
+        memoria.setTentativas(0);
+        database.insert(memoria);
     }
 
 
@@ -40,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
                 int numBotao = Integer.parseInt(botaoClicado.getText().toString());
                 if (numBotao != numero) {
                     seq = 0;
-                    reiniciar(tela);
+                    tentativas++;
+                    ganhei = false;
+                    reiniciar(tela, ganhei);
                 } else {
                     tela.setBackground(botaoClicado.getBackground());
                     botaoClicado.setVisibility(View.INVISIBLE);
@@ -51,17 +72,42 @@ public class MainActivity extends AppCompatActivity {
             }
         } if(seq == 6){
             seq = 0;
+            vitorias++;
             numeros = gerarNumeros();
             TextView victory = (TextView) findViewById(R.id.vitoria);
             victory.setVisibility(View.VISIBLE);
             TextView elogio = (TextView) findViewById(R.id.elogio);
             elogio.setVisibility(View.VISIBLE);
             tela.setBackgroundColor(Color.YELLOW);
+
+            // é ridiculo isso mas ainda não consegui pensar numa ideia melhor!!!
+            memoria.setTentativas(tentativas);
+            memoria.setVitorias(vitorias);
+            database.insert(memoria);
+            memoria = database.qtdeVitoriasETentarivas();
+
+            TextView viewTentativa = (TextView) findViewById(R.id.tentativas);
+            viewTentativa.setVisibility(View.VISIBLE);
+
+            TextView viewQtdeTentativa = (TextView) findViewById(R.id.qtdeTentativas);
+            viewQtdeTentativa.setText(memoria.getTentativas());
+            viewQtdeTentativa.setVisibility(View.VISIBLE);
+
+            TextView viewVitoria = (TextView) findViewById(R.id.ganhei);
+            viewVitoria.setVisibility(View.VISIBLE);
+
+            TextView viewQtdeVitoria = (TextView) findViewById(R.id.qtdeVitoria);
+            viewQtdeVitoria.setText(memoria.getVitorias());
+            viewQtdeVitoria.setVisibility(View.VISIBLE);
+
         }
     }
 
-    public void reiniciar(View view) {
+    public void reiniciar(View view, boolean ganhei) {
         seq = 0;
+        if(!ganhei)
+            tentativas++;
+
         Button show = (Button) findViewById(R.id.button1);
         show.setVisibility(View.VISIBLE);
 
@@ -87,6 +133,14 @@ public class MainActivity extends AppCompatActivity {
         victory.setVisibility(View.INVISIBLE);
         TextView elogio = (TextView) findViewById(R.id.elogio);
         elogio.setVisibility(View.INVISIBLE);
+        TextView viewTentativa = (TextView) findViewById(R.id.tentativas);
+        viewTentativa.setVisibility(View.INVISIBLE);
+        TextView viewVitoria = (TextView) findViewById(R.id.ganhei);
+        viewVitoria.setVisibility(View.INVISIBLE);
+        TextView viewQtdeTentativa = (TextView) findViewById(R.id.qtdeTentativas);
+        viewQtdeTentativa.setVisibility(View.INVISIBLE);
+        TextView viewQtdeVitoria = (TextView) findViewById(R.id.qtdeVitoria);
+        viewQtdeVitoria.setVisibility(View.INVISIBLE);
     }
 
     public List<Integer> gerarNumeros(){

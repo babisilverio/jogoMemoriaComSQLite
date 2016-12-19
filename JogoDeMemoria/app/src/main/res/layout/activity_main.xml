@@ -119,24 +119,61 @@
         android:layout_below="@+id/vitoria"
         android:layout_centerHorizontal="true" />
 
-<!--    <ProgressBar
-        android:layout_width="match_parent"
+    <TextView
+        android:text="@string/qtdeTentativas"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView"
-        android:layout_toRightOf="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
-        android:id="@+id/barrinha"
-        android:visibility="visible" />
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/button3"
+        android:layout_alignStart="@+id/button3"
+        android:id="@+id/tentativas"
+        android:textColor="@android:color/black" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="@string/progresso"
-        android:id="@+id/textView"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" /> -->
+        android:layout_alignBottom="@+id/tentativas"
+        android:layout_toRightOf="@+id/button3"
+        android:layout_toEndOf="@+id/button3"
+        android:id="@+id/qtdeTentativas"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button4"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/qtdeVitoria"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button3"
+        android:layout_alignRight="@+id/tentativas"
+        android:layout_alignEnd="@+id/tentativas"
+        android:id="@+id/ganhei"
+        android:textColor="@android:color/black" />
+
+    <!--    <ProgressBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textView"
+            android:layout_toRightOf="@+id/textView"
+            android:layout_toEndOf="@+id/textView"
+            android:id="@+id/barrinha"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="@string/progresso"
+            android:id="@+id/textView"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" /> -->
 
 
 </RelativeLayout>
